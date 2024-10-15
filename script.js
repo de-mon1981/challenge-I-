@@ -1,4 +1,10 @@
 let display = document.getElementById('display');
+const toggleDarkMode = document.getElementById('toggle-dark-mode');
+
+// Toggle between Light and Dark Mode
+toggleDarkMode.addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode');
+});
 
 function appendToDisplay(value) {
     display.value += value;

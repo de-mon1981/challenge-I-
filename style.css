@@ -1,21 +1,99 @@
+/* Basic Setup for Light and Dark Mode */
+:root {
+    --background-color: #fff;
+    --button-bg-color: #f0f0f0;
+    --button-hover-color: #e0e0e0;
+    --text-color: #222;
+    --display-bg-color: #f0f0f0;
+    --display-text-color: #222;
+}
+
+body.dark-mode {
+    --background-color: #222;
+    --button-bg-color: #333;
+    --button-hover-color: #444;
+    --text-color: #fff;
+    --display-bg-color: #333;
+    --display-text-color: #fff;
+}
+
 /* Body and Calculator Layout */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff5f6d, #ffc371);
+    background: var(--background-color);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background 0.3s ease;
 }
 
 .calculator {
-    background-color: #222;
+    background-color: var(--button-bg-color);
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+/* Theme Toggle Styling */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
 }
 
 /* Display Styling */
@@ -28,9 +106,10 @@ body {
     padding: 15px;
     border: none;
     border-radius: 10px;
-    background-color: #333;
-    color: #fff;
+    background-color: var(--display-bg-color);
+    color: var(--display-text-color);
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Button Grid Layout */
@@ -47,25 +126,17 @@ button {
     font-weight: bold;
     border: none;
     border-radius: 10px;
-    background: linear-gradient(145deg, #ff9a85, #ff6e6e);
-    color: #fff;
+    background: var(--button-bg-color);
+    color: var(--text-color);
     cursor: pointer;
     transition: 0.3s ease;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Hover and Active State */
 button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    background: var(--button-hover-color);
 }
 
-button:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Clear Button Style */
 button.equal {
     grid-column: span 2;
     background: linear-gradient(145deg, #34d058, #28a745);
@@ -76,7 +147,7 @@ button.equal:hover {
     background: linear-gradient(145deg, #2ac64f, #238b3a);
 }
 
-/* Additional Buttons Styling */
+/* General Button Colors */
 button:nth-child(1) {
     background: linear-gradient(145deg, #ff6e6e, #ff4949);
 }
@@ -85,38 +156,14 @@ button:nth-child(2) {
     background: linear-gradient(145deg, #f3a683, #e67e22);
 }
 
-button:nth-child(3) {
-    background: linear-gradient(145deg, #f6e58d, #f9ca24);
-}
-
+button:nth-child(3),
 button:nth-child(4) {
     background: linear-gradient(145deg, #60a3bc, #3498db);
 }
 
-button:nth-child(5),
-button:nth-child(6),
-button:nth-child(7),
-button:nth-child(8),
-button:nth-child(9),
-button:nth-child(10),
-button:nth-child(11),
-button:nth-child(12),
-button:nth-child(13),
-button:nth-child(14) {
-    background: linear-gradient(145deg, #8e44ad, #9b59b6);
-}
-
-/* General Style for Numbers */
-button:nth-child(15),
-button:nth-child(16),
-button:nth-child(17),
-button:nth-child(18),
-button:nth-child(19),
-button:nth-child(20),
-button:nth-child(21) {
-    background: linear-gradient(145deg, #1abc9c, #16a085);
-}
-
-button:nth-child(22) {
-    background: linear-gradient(145deg, #7f8c8d, #95a5a6);
+/* Light and Dark Mode Transitions */
+body.dark-mode .calculator,
+body.dark-mode button {
+    background: var(--button-bg-color);
+    color: var(--text-color);
 }
