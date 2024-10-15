@@ -3,16 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Calculator</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Flashy Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="toggle-dark-mode">
+            <span class="slider round"></span>
+        </label>
+        <p>Dark Mode/Light Mode</p>
+    </div>
+
     <div class="calculator">
         <input type="text" id="display" disabled>
         <div class="buttons">
-            <button onclick="clearDisplay()">Reset</button>
+            <button onclick="clearDisplay()">C</button>
             <button onclick="deleteLast()">DEL</button>
             <button onclick="appendToDisplay('/')">/</button>
             <button onclick="appendToDisplay('*')">*</button>
@@ -32,6 +39,7 @@
             <button onclick="appendToDisplay('.')">.</button>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
