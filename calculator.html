@@ -8,6 +8,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Animation -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
     <div class="theme-toggle">
         <label class="switch">
             <input type="checkbox" id="toggle-dark-mode">
@@ -16,8 +22,6 @@
         <p><h1>Dark Mode/Light Mode</h1></p>
     </div>
 
-<h1>Zabuza</h1>
- <h1>Merge conflicts</h1>
 
     <div class="calculator">
         <input type="text" id="display" disabled>
@@ -44,5 +48,11 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Hide the loader once the page is fully loaded
+        window.addEventListener('load', function() {
+            document.getElementById('loader').style.display = 'none';
+        });
+    </script>
 </body>
 </html>

@@ -1,4 +1,48 @@
-/* Basic Setup for Light and Dark Mode */
+/* Loader Styling */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #222;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    z-index: 9999;
+}
+
+/* Rainbow Spinner Animation */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid transparent;
+    border-top: 5px solid;
+    border-radius: 50%;
+    animation: spin 1s linear infinite, rainbow 3s linear infinite;
+}
+
+/* Spinner Rotation Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Rainbow Gradient Animation */
+@keyframes rainbow {
+    0% { border-top-color: #ff0000; }
+    20% { border-top-color: #ff7f00; }
+    40% { border-top-color: #ffff00; }
+    60% { border-top-color: #00ff00; }
+    80% { border-top-color: #0000ff; }
+    100% { border-top-color: #8b00ff; }
+}
+
+/* Dark Mode CSS Variables and Styling */
 :root {
     --background-color: #fff;
     --button-bg-color: #f0f0f0;
